@@ -11,7 +11,7 @@ public class Application {
         //Bean z klasy konfiguracyjnej z adnotacja ComponentScan
         HelloWorld helloBean = context.getBean("helloBean",HelloWorld.class);
         helloBean.sayHello();
-        //Bean z klasy zawierajacej Component
+        //Bean z klasy zawierajacej Component nazwa taka jak klasa
         HelloWorld helloWorld = context.getBean("helloWorld",HelloWorld.class);
         helloWorld.sayHello();
         //Bean beanowi nierowny jezeli pobierany z roznych klas
