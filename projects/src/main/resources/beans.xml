@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="helloWorld" class="warmup.HelloWorld"></bean>
+    <bean id="helloWorld" class="core.warmup.HelloWorld"></bean>
 
 
 </beans>

@@ -1,4 +1,4 @@
-package components.printers;
+package core.components.printers;
 
 import org.springframework.stereotype.Component;
 
