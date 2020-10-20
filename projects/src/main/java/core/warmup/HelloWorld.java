@@ -6,6 +6,9 @@ import core.components.printers.Printer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+import java.util.Random;
+
 @Component
 public class HelloWorld {
 
@@ -23,28 +26,32 @@ public class HelloWorld {
     public HelloWorld(ConsolePrinter consolePrinter) {
         this.consolePrinter = consolePrinter;
     }
-//    @Autowired
-//    public void setDialogPrinter(DialogPrinter dialogPrinter) {
-//        this.dialogPrinter = dialogPrinter;
-//    }
+
+    //bez adnotacji autowired wyrzuci nullpointerexception
+    @Autowired
+    public void setDialogPrinter(DialogPrinter dialogPrinter) {
+        this.dialogPrinter = dialogPrinter;
+    }
 
 
     public void sayHello() {
         String helloMsg = "Hello, world!";
-        consolePrinter.print(helloMsg);
-//        Integer r = new Random().nextInt(3);
-//        Optional.of(r).filter(v -> v.equals(0))
-//                .ifPresentOrElse(v -> consolePrinter.print(helloMsg),
+//        consolePrinter.print(helloMsg);
+        Integer r = new Random().nextInt(2);
+        Optional.of(r).filter(v -> v.equals(0))
+                .ifPresentOrElse
+                  (v -> consolePrinter.print(helloMsg),
+                    ()->dialogPrinter.print(helloMsg));
 //                        () -> Optional.of(r).filter(v -> v.equals(1))
 //                                .ifPresentOrElse(
 //                                        v -> dialogPrinter.print(helloMsg),
 //                                        () -> defaultPrinter.print(helloMsg)));
     }
 
-//    @Autowired
-//    public void setDefaultPrinter(Printer defaultPrinter) {
-//        this.defaultPrinter = defaultPrinter;
-//    }
+    @Autowired
+    public void setDefaultPrinter(Printer defaultPrinter) {
+        this.defaultPrinter = defaultPrinter;
+    }
 
     }
 
